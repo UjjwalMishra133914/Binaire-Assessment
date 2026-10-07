@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; min-height: 100vh; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #c6d4df;
+  background: #1b2838 linear-gradient(180deg, #2a475e 0, #1b2838 640px) no-repeat;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: #67c1f5; color: #0e1c25; }
+:focus-visible { outline: 2px solid #67c1f5; outline-offset: 2px; }
+
+@layer components {
+  /* Steam button family: a 1px padded shell around a span, so hover can swap only one layer. */
+  .btn-blue { @apply inline-flex cursor-pointer select-none items-center justify-center rounded-sm text-[15px] leading-[30px] transition-[background,color,transform] duration-200; padding: 0 15px; color: #67c1f5; background: rgba(103, 193, 245, .2); }
+  .btn-blue:hover { color: #fff; background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%); }
+  .btn-blue:active { transform: translateY(1px); background: rgba(103, 193, 245, .6); color: #fff; }
+  .btn-blue[aria-pressed="true"], .btn-blue[aria-current="page"] { background: rgba(103, 193, 245, .6); color: #fff; }
+  .btn-blue:disabled, .btn-blue[aria-disabled="true"] { @apply pointer-events-none opacity-40; }
+  .btn-sm { @apply text-xs leading-6; padding: 0 10px; }
+
+  .btn-green { @apply inline-flex cursor-pointer select-none items-center justify-center rounded-sm text-[15px] leading-[30px] transition-[background,color,transform] duration-200; padding: 0 15px; color: #d2e885; background: linear-gradient(to bottom, #799905 5%, #536904 95%); }
+  .btn-green:hover { color: #fff; background: linear-gradient(to bottom, #a4d007 5%, #6b8705 95%); }
+  .btn-green:active { transform: translateY(1px); background: linear-gradient(to bottom, #536904 5%, #799905 95%); }
+  .btn-green:disabled { @apply pointer-events-none opacity-50; }
+
+  .btn-steamui { @apply inline-flex cursor-pointer items-center justify-center rounded-sm font-motiva text-base text-white transition duration-200; padding: 10px 20px; background: linear-gradient(90deg, #06bfff 0%, #2d73ff 100%); }
+  .btn-steamui:hover { background: linear-gradient(90deg, #06bfff 30%, #2d73ff 100%); filter: brightness(1.15); }
+  .btn-steamui:active { transform: translateY(1px); filter: brightness(.9); }
+  .btn-steamui:disabled { @apply pointer-events-none opacity-50; }
+
+  .section-title { @apply font-motiva text-sm uppercase tracking-[.03em] text-white; }
+  .steam-select { @apply h-[22px] cursor-pointer rounded-sm border-0 px-1 text-[13px] transition; color: #67c1f5; background: rgba(103, 193, 245, .2); }
+  .steam-select:hover, .steam-select:focus { color: #fff; background: rgba(103, 193, 245, .4); }
+  .steam-select option { background: #417a9b; color: #e5e4dc; }
+
+  .steam-input { @apply w-full rounded-sm border border-transparent px-2.5 py-2 text-[15px] text-white outline-none transition; background: #32353c; }
+  .steam-input:hover { background: #393c44; }
+  .steam-input:focus { border-color: #1a9fff; background: #393c44; }
+  .steam-input[aria-invalid="true"] { border-color: #c15755; }
+}
+
+@keyframes page-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slide-in-right { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: none; } }
+@keyframes slide-in-left { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+@keyframes slide-down { from { transform: translateY(-100%); } to { transform: none; } }
+@keyframes pop { 0% { transform: scale(.94); opacity: 0; } 100% { transform: none; opacity: 1; } }
+@keyframes target-flash { 0%, 100% { box-shadow: 0 0 0 0 rgba(103, 193, 245, 0); } 30% { box-shadow: 0 0 0 4px rgba(103, 193, 245, .55); } }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+
+.anim-page { animation: page-in .4s cubic-bezier(.2, .8, .2, 1) both; }
+.anim-fade-up { animation: fade-up .45s cubic-bezier(.2, .8, .2, 1) both; }
+.anim-fade-in { animation: fade-in .35s ease both; }
+.anim-next { animation: slide-in-right .45s cubic-bezier(.2, .8, .2, 1) both; }
+.anim-prev { animation: slide-in-left .45s cubic-bezier(.2, .8, .2, 1) both; }
+.anim-banner { animation: slide-down .3s ease both; }
+.anim-pop { animation: pop .25s ease-out both; }
+.anim-pulse { animation: pulse-dot 1.2s ease-in-out infinite; }
+
+.skeleton { position: relative; overflow: hidden; background: rgba(103, 193, 245, .07); }
+.skeleton::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .06), transparent); animation: shimmer 1.4s infinite; }
+
+/* :target — sections reached through an in-page link announce themselves. */
+section:target, [data-target]:target { scroll-margin-top: 16px; animation: target-flash 1.6s ease 2; border-radius: 3px; }
+section:target .section-title { color: #67c1f5; }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, ::before, ::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Sale theme: Home page body pe lagta hai */
+body.sale-theme {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.45) 0, rgba(0,0,0,0) 480px) no-repeat,
+    radial-gradient(circle, rgba(255,255,255,.05) 0 3px, transparent 4px) 0 0 / 48px 48px,
+    #3a1a14;
+}
