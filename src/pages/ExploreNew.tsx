@@ -12,7 +12,7 @@ import { TabbedList, REVIEW_TONE } from "../components/TabbedList";
 
 /** "New & Noteworthy → New Releases" (Steam's /explore/new). */
 export default function ExploreNew() {
-  useEffect(() => { document.title = "New On Freznel"; }, []);
+  useEffect(() => { document.title = "New On Steam"; }, []);
   const api = TMDBService.get();
   const { data, error } = useAsync(() => api.newReleases(1, "popularity.desc"), []);
   const popular = data?.results.filter((m) => m.backdrop_path) ?? [];

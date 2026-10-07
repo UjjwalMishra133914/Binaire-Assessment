@@ -17,7 +17,7 @@ export default function AgeCheck({ id }: { id: string }) {
   const [month, setMonth] = useState(0);
   const [year, setYear] = useState(THIS_YEAR);
   const [denied, setDenied] = useState(false);
-  useEffect(() => { if (m) document.title = `${m.title} on Freznel`; }, [m]);
+  useEffect(() => { if (m) document.title = `${m.title} on Steam`; }, [m]);
 
   const submit = (e?: FormEvent) => {
     e?.preventDefault();

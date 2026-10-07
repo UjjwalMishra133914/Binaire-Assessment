@@ -26,7 +26,7 @@ export default function AppPage({ id }: { id: string }) {
   useEffect(() => {
     if (!m) return;
     if (gated) { Router.get().replace(`/agecheck/app/${id}`); return; }
-    document.title = `${m.title} on Freznel`;
+    document.title = `${m.title} on Steam`;
     RecentlyViewed.push({ id: m.id, title: m.title });
   }, [m, gated, id]);
 

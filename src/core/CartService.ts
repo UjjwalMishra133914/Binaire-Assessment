@@ -7,14 +7,14 @@ export class CartService {
   static get(): CartService { return (this.instance ??= new CartService()); }
 
   private listeners = new Set<Listener>();
-  private cart: CartItem[] = this.load("freznel:cart");
-  private wishlist: number[] = this.load("freznel:wishlist");
+  private cart: CartItem[] = this.load("Steam:cart");
+  private wishlist: number[] = this.load("Steam:wishlist");
   private version = 0;
 
   private constructor() {
     window.addEventListener("storage", (e) => {
-      if (e.key === "freznel:cart") this.cart = this.load(e.key);
-      else if (e.key === "freznel:wishlist") this.wishlist = this.load(e.key);
+      if (e.key === "Steam:cart") this.cart = this.load(e.key);
+      else if (e.key === "Steam:wishlist") this.wishlist = this.load(e.key);
       else return;
       this.emit();
     });
@@ -25,8 +25,8 @@ export class CartService {
   }
   private save() {
     try {
-      localStorage.setItem("freznel:cart", JSON.stringify(this.cart));
-      localStorage.setItem("freznel:wishlist", JSON.stringify(this.wishlist));
+      localStorage.setItem("Steam:cart", JSON.stringify(this.cart));
+      localStorage.setItem("Steam:wishlist", JSON.stringify(this.wishlist));
     } catch { /* quota */ }
     this.emit();
   }

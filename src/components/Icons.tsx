@@ -21,12 +21,12 @@ export const PlayIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" {...base(p)}><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
 );
 
-/** Freznel wordmark, drawn in the store header's style. */
+/** Steam wordmark, drawn in the store header's style. */
 export const Logo = ({ className = "" }: { className?: string }) => (
-  <svg viewBox="0 0 176 44" className={className} role="img" aria-label="Freznel">
+  <svg viewBox="0 0 150 44" className={className} role="img" aria-label="Steam">
     <circle cx="22" cy="22" r="19" fill="none" stroke="currentColor" strokeWidth="3" />
     <circle cx="22" cy="22" r="13" fill="currentColor" />
-    <path d="M17 14h11v3.4h-7.2v3.3h6.4v3.4h-6.4V30H17z" fill="#171a21" />
-    <text x="50" y="31" fill="currentColor" fontFamily="'Motiva Sans','Nunito Sans',Arial,sans-serif" fontWeight="700" fontSize="25" letterSpacing="1.5">FREZNEL</text>
+    <circle cx="22" cy="22" r="5" fill="#171a21" />
+    <text x="50" y="31" fill="currentColor" fontFamily="'Motiva Sans','Nunito Sans',Arial,sans-serif" fontWeight="700" fontSize="25" letterSpacing="1.5">STEAM</text>
   </svg>
 );

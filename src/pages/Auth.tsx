@@ -87,7 +87,7 @@ export default function Auth({ mode }: { mode: "join" | "login" }) {
               <div>
                 <label className="flex cursor-pointer items-start gap-2 text-[13px] text-[#afafaf] hover:text-white">
                   <input type="checkbox" className="mt-0.5 h-4 w-4 accent-[#1a9fff]" checked={f.agree} onChange={(e) => set("agree", e.target.checked)} {...aria("agree")} />
-                  I am 13 years of age or older and agree to the terms of the Freznel Subscriber Agreement and the Privacy Policy.
+                  I am 13 years of age or older and agree to the terms of the Steam Subscriber Agreement and the Privacy Policy.
                 </label>
                 {fieldErr("agree")}
               </div>
@@ -102,7 +102,7 @@ export default function Auth({ mode }: { mode: "join" | "login" }) {
               <button type="submit" className="btn-steamui min-w-[270px]" disabled={busy || !online}>{busy ? "Please wait…" : signup ? "Continue" : "Sign in"}</button>
             </div>
             <p className="pt-2 text-[12px] text-[#afafaf]">
-              {signup ? "Already have an account? " : "New to Freznel? "}
+              {signup ? "Already have an account? " : "New to Steam? "}
               <Link to={signup ? "/login" : "/join"} className="text-white underline underline-offset-2 transition hover:text-[#1a9fff]">{signup ? "Sign in" : "Create a free account"}</Link>
             </p>
           </form>

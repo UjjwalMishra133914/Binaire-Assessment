@@ -8,7 +8,7 @@ export class AgeGate {
   static readonly MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   private static instance: AgeGate;
   static get(): AgeGate { return (this.instance ??= new AgeGate()); }
-  private readonly key = "freznel:birthtime";
+  private readonly key = "Steam:birthtime";
 
   /** US certification if present, otherwise the first one TMDB has. */
   static certification(m: MovieDetail): string {

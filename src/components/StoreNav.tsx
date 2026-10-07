@@ -47,7 +47,7 @@ function Promo({ to, label, a, b }: { to: string; label: string; a: string; b: s
 function BrowsePanel() {
   const items: [string, string, string][] = [
     ["/", "Store Home", ""],
-    ["/explore/new", "New Releases", "Explore new content on Freznel"],
+    ["/explore/new", "New Releases", "Explore new content on Steam"],
     ["/search?filter=upcoming", "Upcoming Releases", "See what's on the release calendar"],
     ["/search?filter=topsellers", "All Charts & Stats", "Explore top titles by popularity"],
   ];
@@ -77,7 +77,7 @@ function BrowsePanel() {
           <p className={head}>My account</p>
           <Link to="/search?filter=wishlist" className={col}>My Wishlist</Link>
           <Link to="/login" className={col}>Sign In</Link>
-          <Link to="/join" className={col}>Join Freznel</Link>
+          <Link to="/join" className={col}>Join Steam</Link>
         </div>
       </div>
     </div>

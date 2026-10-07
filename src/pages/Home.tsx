@@ -37,7 +37,7 @@ async function dealsFrom(pages: number[]) {
 
 export default function Home() {
   useEffect(() => {
-    document.title = "Welcome to Freznel";
+    document.title = "Welcome to Steam";
     document.body.classList.add("sale-theme");
     return () => document.body.classList.remove("sale-theme");
   }, []);
@@ -149,7 +149,7 @@ function DiscoveryBanner() {
       <p className="mt-1 text-[15px] text-[#dfe8ef]">Sign in to discover top-selling, new and recommended titles.</p>
       <div className="mt-4 flex items-center gap-4">
         <Link to="/login" className="btn-steamui !px-4 !py-1.5 !text-[15px]">Sign In</Link>
-        <span className="text-[13px] text-[#c6d4df]">Or <Link to="/join" className="text-white underline-offset-2 hover:underline">sign up</Link> and join Freznel for free</span>
+        <span className="text-[13px] text-[#c6d4df]">Or <Link to="/join" className="text-white underline-offset-2 hover:underline">sign up</Link> and join Steam for free</span>
       </div>
     </section>
   );

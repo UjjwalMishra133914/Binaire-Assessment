@@ -75,7 +75,7 @@ export default function Search({ search }: { search: string }) {
   }, [data, filter, maxPrice, genres.join(","), sort.id, term]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const heading = term ? `Results for "${term}"` : FILTERS[filter] ?? (genres.length ? GENRES.filter(([id]) => genres.includes(id)).map(([, n]) => n).join(" + ") : "All Movies");
-  useEffect(() => { document.title = `Freznel Search${term ? `: ${term}` : ""}`; }, [term]);
+  useEffect(() => { document.title = `Steam Search${term ? `: ${term}` : ""}`; }, [term]);
 
   return (
     <div className="mx-auto max-w-[940px] px-2 lg:px-0">

@@ -1,4 +1,4 @@
-# Binaire_Freznel_Assessment — Web-Store UI
+# Binaire_Steam_Assessment — Web-Store UI
 
 A Steam-store-style web store built with React + TypeScript + Tailwind CSS and CSS keyframe animations.
 Content (titles, art, ratings) comes from the TMDB API. Client-side only, so no SSR, and no router, pagination or lazy-loading libraries.
@@ -57,4 +57,4 @@ The service worker (`public/sw.js`) caches the app shell, TMDB responses and ima
 - `prefers-reduced-motion` support; focus moves to `<main>` on route change.
 
 ## Notes
-- The Steam logo and trademarks are not used; the brand is "Freznel". Steam's font (Motiva Sans) is not freely available, so headings use Nunito Sans, and body text is Arial, the same as Steam.
+- The Steam logo and trademarks are not used; the brand is "Steam". Steam's font (Motiva Sans) is not freely available, so headings use Nunito Sans, and body text is Arial, the same as Steam.

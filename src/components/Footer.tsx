@@ -23,7 +23,7 @@ export function Footer() {
         <div className="w-[300px] max-w-full">
           <Logo className="h-8 w-32 text-[#c6d4df]" />
           <p className="mt-5 leading-[18px]">
-            © {year} Freznel Store. All rights reserved. Movie data and images are provided by TMDB; this product uses the TMDB API but is not endorsed or certified by TMDB.
+            © {year} Steam Store. All rights reserved. Movie data and images are provided by TMDB; this product uses the TMDB API but is not endorsed or certified by TMDB.
             Prices are illustrative and shown in INR. All trademarks are property of their respective owners.
           </p>
           <div className="mt-5 flex items-center gap-3">
@@ -40,8 +40,8 @@ export function Footer() {
         </div>
 
         <nav aria-label="Footer" className="grid min-w-[300px] flex-1 grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 lg:max-w-[560px]">
-          <Col id="about" title="Freznel">
-            <li><a href="#about" className={lnk}>About Freznel</a></li>
+          <Col id="about" title="Steam">
+            <li><a href="#about" className={lnk}>About Steam</a></li>
             <li><Link to="/search?filter=topsellers" className={lnk}>Top Sellers</Link></li>
             <li><Link to="/explore/new" className={lnk}>New Releases</Link></li>
             <li><Link to="/search?filter=specials" className={lnk}>Special Offers</Link></li>
