@@ -17,7 +17,13 @@ function validate(f: Fields, signup: boolean): Partial<Record<keyof Fields, stri
   return e;
 }
 
-/** Sign-in and account creation, both backed by Firebase Authentication. */
+const GoogleG = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path fill="#4285F4" d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.9-5.5 3.9-3.3 0-6-2.7-6-6s2.7-6 6-6c1.9 0 3.1.8 3.8 1.5l2.6-2.5C16.8 3.4 14.6 2.4 12 2.4 6.7 2.4 2.4 6.7 2.4 12S6.7 21.6 12 21.6c5.5 0 9.2-3.9 9.2-9.4 0-.6-.1-1.1-.2-1.6z" />
+  </svg>
+);
+
+/** Sign-in and account creation, both backed by Firebase Authentication (email/password + Google). */
 export default function Auth({ mode }: { mode: "join" | "login" }) {
   const signup = mode === "join";
   const online = useOnline();
@@ -37,6 +43,13 @@ export default function Auth({ mode }: { mode: "join" | "login" }) {
     try {
       const a = AuthService.get();
       if (signup) await a.signUp(f.name.trim(), f.email, f.password); else await a.signIn(f.email, f.password);
+      Router.get().navigate("/");
+    } catch (x) { setErr(AuthService.friendlyError(x)); } finally { setBusy(false); }
+  };
+  const google = async () => {
+    setErr(""); setBusy(true);
+    try {
+      await AuthService.get().signInWithGoogle();
       Router.get().navigate("/");
     } catch (x) { setErr(AuthService.friendlyError(x)); } finally { setBusy(false); }
   };
@@ -101,6 +114,17 @@ export default function Auth({ mode }: { mode: "join" | "login" }) {
             <div className="flex justify-center pt-2 sm:justify-start">
               <button type="submit" className="btn-steamui min-w-[270px]" disabled={busy || !online}>{busy ? "Please wait…" : signup ? "Continue" : "Sign in"}</button>
             </div>
+
+            <div className="flex items-center gap-3 pt-1 text-[12px] uppercase text-[#6d7880]" aria-hidden="true">
+              <span className="h-px flex-1 bg-white/10" />or<span className="h-px flex-1 bg-white/10" />
+            </div>
+            <div className="flex justify-center sm:justify-start">
+              <button type="button" onClick={google} disabled={busy || !online}
+                className="flex min-w-[270px] items-center justify-center gap-3 rounded-[2px] bg-white px-5 py-2 text-[15px] font-medium text-[#1f1f1f] transition hover:bg-[#f1f3f4] active:scale-[.99] disabled:cursor-not-allowed disabled:opacity-60">
+                <GoogleG />Continue with Google
+              </button>
+            </div>
+
             <p className="pt-2 text-[12px] text-[#afafaf]">
               {signup ? "Already have an account? " : "New to Steam? "}
               <Link to={signup ? "/login" : "/join"} className="text-white underline underline-offset-2 transition hover:text-[#1a9fff]">{signup ? "Sign in" : "Create a free account"}</Link>
