@@ -6,7 +6,7 @@ import { TMDBService, type Movie } from "../core/TMDBService";
 import { PriceEngine } from "../core/PriceEngine";
 import { ReviewSummary } from "../core/ReviewSummary";
 
-/** Hover popup (title, date, description, reviews, tags). `side` = kis taraf khule. */
+
 export function HoverCard({ movie: m, side = "right", children }: { movie: Movie; side?: "right" | "left"; children: ReactNode }) {
   const api = TMDBService.get();
   const review = ReviewSummary.of(m);
@@ -43,7 +43,6 @@ export function HoverCard({ movie: m, side = "right", children }: { movie: Movie
   );
 }
 
-/** Image + discount/price strip. `live` sirf demo badge hai. */
 export function Capsule({ movie: m, live = false }: { movie: Movie; live?: boolean }) {
   const api = TMDBService.get();
   return (

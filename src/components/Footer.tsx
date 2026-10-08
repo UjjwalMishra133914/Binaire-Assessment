@@ -12,9 +12,8 @@ function Col({ id, title, children }: { id?: string; title: string; children: Re
       <ul className="space-y-2.5">{children}</ul>
     </section>
   );
-}
+} 
 
-/** Store footer. Its columns double as `:target` destinations for the global menu. */
 export function Footer() {
   const year = new Date().getFullYear();
   return (

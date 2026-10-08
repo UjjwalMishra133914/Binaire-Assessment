@@ -1,6 +1,6 @@
 export interface Viewed { id: number; title: string }
 
-/** The last few store pages the visitor opened, newest first. */
+
 export class RecentlyViewed {
   private static readonly KEY = "Steam:recent";
   private static readonly MAX = 5;

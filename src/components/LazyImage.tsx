@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { sharedLazyLoader } from "../core/LazyLoader";
 
-/** Image that only requests its source once it nears the viewport, then fades in. */
+
 export function LazyImage({ src, alt, className = "", imgClassName = "" }: { src: string; alt: string; className?: string; imgClassName?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [url, setUrl] = useState("");

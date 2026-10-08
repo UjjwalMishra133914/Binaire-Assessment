@@ -23,7 +23,7 @@ const GoogleG = () => (
   </svg>
 );
 
-/** Sign-in and account creation, both backed by Firebase Authentication (email/password + Google). */
+
 export default function Auth({ mode }: { mode: "join" | "login" }) {
   const signup = mode === "join";
   const online = useOnline();

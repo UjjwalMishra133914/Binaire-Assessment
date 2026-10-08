@@ -1,9 +1,6 @@
 export interface Price { free: boolean; original: number; final: number; discount: number }
 
-/**
- * TMDB has no prices, so each title gets a stable store price derived from its id:
- * the same movie always shows the same price and discount, online or offline.
- */
+
 export class PriceEngine {
   private static readonly TIERS = [199, 299, 349, 499, 649, 799, 999, 1299, 1599, 1999, 2499, 2999, 3499, 3999, 4999];
   private static readonly CUTS = [10, 15, 20, 25, 33, 40, 50, 60, 66, 70, 75, 80, 90];

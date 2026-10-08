@@ -21,7 +21,7 @@ export type Params = Record<string, string | number>;
 const BASE = "https://api.themoviedb.org/3";
 const KEY = import.meta.env.VITE_TMDB_KEY as string | undefined;
 
-/** TMDB client. Every response is mirrored to localStorage, so the store keeps working offline. */
+
 export class TMDBService {
   private static instance: TMDBService;
   static get(): TMDBService { return (this.instance ??= new TMDBService()); }
@@ -67,7 +67,7 @@ export class TMDBService {
   upcoming(page = 1) { return this.request<Page<Movie>>("/movie/upcoming", { page }); }
   search(query: string, page = 1) { return this.request<Page<Movie>>("/search/movie", { query, page }); }
   discover(params: Params, page = 1) { return this.request<Page<Movie>>("/discover/movie", { ...params, page }); }
-  /** Titles released in the last `days` days, newest first unless `sort` says otherwise. */
+  
   newReleases(page = 1, sort = "primary_release_date.desc", days = 60) {
     const day = (offset: number) => new Date(Date.now() - offset * 864e5).toISOString().slice(0, 10);
     return this.discover({ sort_by: sort, "primary_release_date.gte": day(days), "primary_release_date.lte": day(0), "vote_count.gte": 3 }, page);
@@ -84,7 +84,7 @@ export class TMDBService {
     const { genres } = await this.request<{ genres: Genre[] }>("/genre/movie/list");
     return (this.genreNames = new Map(genres.map((g) => [g.id, g.name])));
   }
-  /** Genre names for a list item; empty until `genres()` has resolved once. */
+  
   tagsFor(m: Movie, max = 4): string[] {
     return (m.genre_ids ?? []).slice(0, max).map((id) => this.genreNames?.get(id)).filter((n): n is string => !!n);
   }

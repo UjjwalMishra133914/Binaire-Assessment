@@ -21,7 +21,7 @@ export const PlayIcon = (p: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" {...base(p)}><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
 );
 
-/** Steam wordmark, drawn in the store header's style. */
+
 export const Logo = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 150 44" className={className} role="img" aria-label="Steam">
     <circle cx="22" cy="22" r="19" fill="none" stroke="currentColor" strokeWidth="3" />

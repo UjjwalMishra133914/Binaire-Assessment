@@ -1,6 +1,6 @@
 type Listener = (online: boolean) => void;
 
-/** Tracks connectivity (browser events) and notifies subscribers. */
+
 export class NetworkMonitor {
   private static instance: NetworkMonitor;
   private listeners = new Set<Listener>();

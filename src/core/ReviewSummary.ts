@@ -1,6 +1,6 @@
 export type ReviewTone = "positive" | "mixed" | "negative" | "none";
 
-/** Steam-style review label from a TMDB score (0–10) and vote count. */
+
 export class ReviewSummary {
   constructor(readonly percent: number, readonly count: number) {}
 

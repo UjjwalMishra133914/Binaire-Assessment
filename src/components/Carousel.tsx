@@ -2,10 +2,6 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Carousel as CarouselModel } from "../core/Carousel";
 import { ChevronLeft, ChevronRight } from "./Icons";
 
-/**
- * Paged carousel with Steam's side arrows and thumb dots. `render(page)` draws one page;
- * pages animate in from the side they were navigated towards.
- */
 export function Carousel({ pages, render, label, autoplay = 0, className = "" }: {
   pages: number; render: (page: number) => ReactNode; label: string; autoplay?: number; className?: string;
 }) {
@@ -40,7 +36,8 @@ export function Carousel({ pages, render, label, autoplay = 0, className = "" }:
           <ChevronRight width={23} height={36} />
         </button>
       </div>
-      {pages > 1 && (
+      {
+      pages > 1 && (
         <div className="mt-2.5 flex justify-center gap-[3px]" role="tablist" aria-label={`${label} pages`}>
           {Array.from({ length: pages }, (_, i) => (
             <button key={i} type="button" role="tab" aria-selected={i === index} aria-label={`Page ${i + 1}`}

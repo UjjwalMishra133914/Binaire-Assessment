@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useOnline } from "../core/hooks";
 
-/** Slides in when connectivity changes; stays up for as long as the app is offline. */
+
 export function StatusBanner() {
   const online = useOnline();
   const [flash, setFlash] = useState(false);

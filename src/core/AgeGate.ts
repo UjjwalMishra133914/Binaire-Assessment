@@ -2,7 +2,7 @@ import type { MovieDetail } from "./TMDBService";
 
 const MATURE = new Set(["R", "NC-17", "X", "18", "18+", "A", "R18", "R18+"]);
 
-/** Birth-date check for mature titles. The birth date lives only for the browser session. */
+
 export class AgeGate {
   static readonly MIN_AGE = 18;
   static readonly MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -10,7 +10,7 @@ export class AgeGate {
   static get(): AgeGate { return (this.instance ??= new AgeGate()); }
   private readonly key = "Steam:birthtime";
 
-  /** US certification if present, otherwise the first one TMDB has. */
+  
   static certification(m: MovieDetail): string {
     const results = m.release_dates?.results ?? [];
     const pick = (r?: (typeof results)[number]) => r?.release_dates.find((d) => d.certification)?.certification ?? "";
@@ -30,7 +30,7 @@ export class AgeGate {
     return !!t && AgeGate.ageOn(new Date(t)) >= AgeGate.MIN_AGE;
   }
 
-  /** Returns true when the visitor is old enough; the date is remembered either way. */
+  
   submit(day: number, monthIndex: number, year: number): boolean {
     const birth = new Date(year, monthIndex, day);
     sessionStorage.setItem(this.key, String(birth.getTime()));

@@ -10,7 +10,7 @@ import { Carousel } from "../components/Carousel";
 import { SectionHead } from "../components/SectionHead";
 import { TabbedList, REVIEW_TONE } from "../components/TabbedList";
 
-/** "New & Noteworthy → New Releases" (Steam's /explore/new). */
+
 export default function ExploreNew() {
   useEffect(() => { document.title = "New On Steam"; }, []);
   const api = TMDBService.get();

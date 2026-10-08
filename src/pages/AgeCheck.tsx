@@ -9,7 +9,7 @@ const DAYS = Array.from({ length: 31 }, (_, i) => i + 1);
 const THIS_YEAR = new Date().getFullYear();
 const YEARS = Array.from({ length: THIS_YEAR - 1900 + 1 }, (_, i) => 1900 + i);
 
-/** Steam's age gate: shown before the store page of a mature title. */
+
 export default function AgeCheck({ id }: { id: string }) {
   const api = TMDBService.get();
   const { data: m, error } = useAsync(() => api.detail(id), [id]);

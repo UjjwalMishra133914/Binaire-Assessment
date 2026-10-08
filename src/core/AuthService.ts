@@ -4,7 +4,7 @@ import {
   onAuthStateChanged, updateProfile, GoogleAuthProvider, signInWithPopup, type Auth, type User,
 } from "firebase/auth";
 
-/** Firebase-only authentication wrapped in a class. */
+
 export class AuthService {
   private static instance: AuthService;
   private auth: Auth;
@@ -25,7 +25,7 @@ export class AuthService {
     return cred.user;
   }
   async signIn(email: string, password: string) { return (await signInWithEmailAndPassword(this.auth, email, password)).user; }
-  /** Google popup: naya user ho to account ban jata hai, purana ho to login. */
+  
   async signInWithGoogle() {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: "select_account" });
@@ -35,7 +35,7 @@ export class AuthService {
   onChange(cb: (u: User | null) => void) { return onAuthStateChanged(this.auth, cb); }
   static friendlyError(e: unknown): string {
     const code = (e as { code?: string })?.code ?? "";
-    // User ne khud popup band kiya: error dikhane ki zarurat nahi.
+    
     if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") return "";
     const map: Record<string, string> = {
       "auth/email-already-in-use": "That email is already registered. Try signing in instead.",

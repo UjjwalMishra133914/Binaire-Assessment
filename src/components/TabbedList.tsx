@@ -14,10 +14,7 @@ export interface ListTab { id: string; label: string; load: (page: number) => Pr
 
 const REVIEW_TONE = { positive: "text-[#66c0f4]", mixed: "text-[#b9a074]", negative: "text-[#a34c25]", none: "text-[#556772]" } as const;
 
-/**
- * Steam's tabbed lists: rows on the left, a hover/focus preview on the right.
- * Fetches only once scrolled into view; `paged` swaps "See more" for a pager.
- */
+
 export function TabbedList({ tabs, title, id, paged = false }: { tabs: ListTab[]; title?: string; id: string; paged?: boolean }) {
   const [active, setActive] = useState(tabs[0].id);
   const [page, setPage] = useState(1);
@@ -30,7 +27,7 @@ export function TabbedList({ tabs, title, id, paged = false }: { tabs: ListTab[]
   if (data) paginator.update(data.page, data.total_pages);
   const items = data?.results.slice(0, paged ? 20 : 10) ?? [];
   const [focus, setFocus] = useState<Movie | null>(null);
-  useEffect(() => { setFocus(items[0] ?? null); }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { setFocus(items[0] ?? null); }, [data]); 
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const onTabKey = (e: React.KeyboardEvent, i: number) => {

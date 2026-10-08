@@ -1,6 +1,6 @@
 import { PriceEngine, type Price as P } from "../core/PriceEngine";
 
-/** Steam discount block: green percentage tile + struck-through original + final price. */
+
 export function Price({ price, size = "sm", className = "", solid = false, onLight = false }: { price: P; size?: "sm" | "md" | "lg"; className?: string; solid?: boolean; onLight?: boolean }) {
   const pct = { sm: "text-[15px] leading-[34px] px-1", md: "text-[17px] leading-[38px] px-1.5", lg: "text-[25px] leading-[34px] px-1.5" }[size];
   const fin = { sm: "text-[13px]", md: "text-[15px]", lg: "text-[15px]" }[size];

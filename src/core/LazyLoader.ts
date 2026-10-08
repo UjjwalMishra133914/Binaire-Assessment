@@ -1,4 +1,4 @@
-/** Lazy loading from scratch on top of the browser IntersectionObserver primitive. */
+
 export class LazyLoader {
   private observer: IntersectionObserver;
   private handlers = new WeakMap<Element, () => void>();

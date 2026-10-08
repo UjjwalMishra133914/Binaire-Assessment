@@ -1,6 +1,6 @@
 import { Paginator } from "../core/Paginator";
 
-/** Steam search-results pager: "< 1 2 3 … 40 >". */
+
 export function Pagination({ paginator, onChange }: { paginator: Paginator; onChange: (p: number) => void }) {
   const cell = "min-w-[26px] rounded-sm px-1.5 py-0.5 text-center text-[13px] transition";
   return (

@@ -130,7 +130,6 @@ function DealGrid({ id, load, count = 8 }: { id: string; load: () => Promise<Mov
         {!data && !error && Array.from({ length: count }, (_, i) => <div key={i} className="skeleton aspect-[16/10]" />)}
         {items.map((m, i) => (
           <HoverCard key={m.id} movie={m} side={i % 4 === 3 ? "left" : "right"}>
-            {/* LIVE badge demo ke liye id se decide hota hai */}
             <Capsule movie={m} live={m.id % 6 === 0} />
           </HoverCard>
         ))}

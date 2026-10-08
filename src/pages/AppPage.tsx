@@ -11,7 +11,7 @@ import { LazyImage } from "../components/LazyImage";
 import { Price } from "../components/Price";
 import { Carousel } from "../components/Carousel";
 import { PlayIcon, WindowsIcon } from "../components/Icons";
-import { REVIEW_TONE } from "../components/TabbedList";
+import { REVIEW_TONE } from "../components/TabbedList"; 
 
 type Media = { kind: "video"; key: string; name: string } | { kind: "image"; path: string };
 

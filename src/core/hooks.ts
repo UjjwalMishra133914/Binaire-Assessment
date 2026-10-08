@@ -21,7 +21,7 @@ export const useUser = () => {
   return user;
 };
 
-/** Runs `fn` whenever `deps` change; stale results from a superseded run are dropped. */
+
 export function useAsync<T>(fn: () => Promise<T>, deps: unknown[]) {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState("");
@@ -31,11 +31,11 @@ export function useAsync<T>(fn: () => Promise<T>, deps: unknown[]) {
     let alive = true; setLoading(true); setError("");
     fn().then((d) => alive && setData(d)).catch((e: Error) => alive && setError(e.message)).finally(() => alive && setLoading(false));
     return () => { alive = false; };
-  }, [...deps, online]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [...deps, online]); 
   return { data, error, loading };
 }
 
-/** True once the element has scrolled near the viewport (from-scratch lazy loading). */
+
 export function useInView<T extends Element>() {
   const ref = useRef<T>(null);
   const [seen, setSeen] = useState(false);
@@ -53,7 +53,7 @@ export const useCart = () => {
   return c;
 };
 
-/** Re-renders once TMDB genre names are loaded, so list rows can show tags. */
+
 export function useGenres() {
   const [, bump] = useState(0);
   useEffect(() => { TMDBService.get().genres().then(() => bump(1)).catch(() => {}); }, []);

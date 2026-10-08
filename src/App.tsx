@@ -40,7 +40,6 @@ export default function App() {
       <StatusBanner />
       <GlobalHeader />
       {!hideNav && <StoreNav />}
-      {/* Keying by path remounts the page, which replays the page-in transition. */}
       <main id="main" key={path} tabIndex={-1} className="anim-page min-h-[70vh] pt-3 outline-none">{route(path, search)}</main>
       <Footer />
     </>

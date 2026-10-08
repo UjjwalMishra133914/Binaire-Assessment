@@ -1,6 +1,6 @@
 type Listener = (index: number) => void;
 
-/** Paged carousel state with wrap-around and an autoplay timer that pauses on demand. */
+
 export class Carousel {
   private listeners = new Set<Listener>();
   private timer: ReturnType<typeof setInterval> | null = null;

@@ -1,6 +1,6 @@
 type Listener = () => void;
 
-/** Minimal History-API router (no external router lib). Keeps the hash free for :target. */
+
 export class Router {
   private static instance: Router;
   private listeners = new Set<Listener>();

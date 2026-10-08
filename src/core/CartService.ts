@@ -1,7 +1,7 @@
 type Listener = () => void;
 export interface CartItem { id: number; title: string; price: number; image: string | null }
 
-/** Cart and wishlist kept in localStorage so they survive reloads and offline use. */
+
 export class CartService {
   private static instance: CartService;
   static get(): CartService { return (this.instance ??= new CartService()); }

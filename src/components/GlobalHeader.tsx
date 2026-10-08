@@ -17,7 +17,7 @@ const UserIcon = () => (
   </svg>
 );
 
-/** Top black bar: logo, primary menu and the login / account action. */
+
 export function GlobalHeader() {
   const user = useUser();
   const path = useLocation().split("?")[0];
@@ -33,7 +33,8 @@ export function GlobalHeader() {
         </Link>
         <nav aria-label="Global" className="hidden md:block">
           <ul className="flex">
-            {MENU.map((m) => {
+            {
+            MENU.map((m) => {
               const active = m.to === "/" && onStore;
               const cls = `${item} ${active ? "!text-steam-blue after:absolute after:inset-x-[7px] after:bottom-0 after:h-[3px] after:bg-steam-blue" : ""}`;
               return <li key={m.label}>{m.to ? <Link to={m.to} className={cls} aria-current={active ? "page" : undefined}>{m.label}</Link> : <a href={m.href} className={cls}>{m.label}</a>}</li>;

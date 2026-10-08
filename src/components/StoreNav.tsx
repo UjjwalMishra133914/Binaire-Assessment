@@ -20,7 +20,7 @@ const TOP: [number, string, string][] = [
 const head = "mb-2 font-motiva text-[11px] uppercase tracking-wider text-[#8f98a0]";
 const col = "block py-1.5 text-[14px] text-[#c6d4df] transition hover:text-white hover:underline focus-visible:text-white";
 
-/** Tab + poora-width mega panel (hover ya keyboard focus pe khulta hai). */
+
 function Flyout({ label, to, children }: { label: string; to: string; children: ReactNode }) {
   return (
     <div className="group/fly shrink-0">
@@ -185,7 +185,7 @@ function SearchBox() {
   );
 }
 
-/** Dark store navigation bar: mega-menu tabs + search box with popular searches. */
+
 export function StoreNav() {
   const cart = useCart();
   const small = "btn-blue btn-sm !text-[11px] uppercase";
@@ -229,7 +229,7 @@ export function StoreNav() {
   );
 }
 
-/** Cart opened through `#cart` — it exists only while it is the :target. */
+
 function CartDrawer() {
   const cart = useCart();
   return (
